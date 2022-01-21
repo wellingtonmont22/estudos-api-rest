@@ -1,8 +1,9 @@
+import Produto from '../models/Produto';
+
 class HomeController {
-  index(req, res) {
-    return res.status(200).json({
-      message: 'rota index ok!',
-    });
+  async index(req, res) {
+    const Produtos = await Produto.findAll();
+    return res.status(200).json(Produtos);
   }
 }
 
